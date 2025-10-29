@@ -1,0 +1,17 @@
+services:
+  menu_service:
+    build: ./menu_service
+    ports:
+      - "5001:5001"
+
+  order_service:
+    build: ./order_service
+    ports:
+      - "5002:5002"
+    depends_on:
+      - payment_service
+
+  payment_service:
+    build: ./payment_service
+    ports:
+      - "5003:5003"
